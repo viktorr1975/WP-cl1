@@ -1,0 +1,17 @@
+/*
+Theme Name: MySimple
+Author: Vit
+Description: I try to mke the theme according to https://codex.wordpress.org/Theme_Development.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: two-columns, left-sidebar
+Text Domain: MySimple
+
+*/
+.menu-pages-container{
+	float:left;
+}
+#footer{
+	clear:both;
+}
