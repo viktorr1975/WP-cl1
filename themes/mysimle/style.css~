@@ -12,9 +12,6 @@ Text Domain: MySimple
 .menu-pages-container{
 	float:left;
 }
-.primary-sidebar{
-	float:left;
-}
 #footer{
 	clear:both;
 }
