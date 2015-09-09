@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  * Template Name: SidebarPage
  * Description: A Page Template to show page content with sidebar.

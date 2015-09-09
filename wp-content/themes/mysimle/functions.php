@@ -1,11 +1,10 @@
-﻿<?php
+<?php
 /**
  * Регистрация боковичка для страницы.
  * Регистрация с помощью add_action позволит при необходимости в дочерней теме отключить р * егистрацию
  * 
  */
-
- add_action('widgets_init','my_register_sidebars');
+add_action('widgets_init','my_register_sidebars');
  function my_register_sidebars(){
  	register_sidebar(
  		array(
@@ -19,5 +18,4 @@
  		)
  	);
  }
- 
 ?>

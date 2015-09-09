@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * The primary sidebar containing the custom widget area
  *
