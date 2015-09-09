@@ -13,6 +13,7 @@ Text Domain: MySimple
 }
 .primary-sidebar{
 	float:left;
+	width:300px;
 }
 #footer{
 	clear:both;
