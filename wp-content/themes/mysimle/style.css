@@ -8,13 +8,32 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: two-columns, left-sidebar
 Text Domain: MySimple
 */
-.menu-pages-container{
-	float:left;
+html, body{
+	height: 100%;
+	margin: 0px;
 }
-.primary-sidebar{
-	float:left;
-	width:300px;
+#header{
+	background: #778885;
+	margin: 0px;
+	padding: 0;
+}
+#wrapper{
+	display: inline-flex;	
+	height: 92%;
+	margin-bottom: -20px;
+	overflow: auto;
+}
+.menu-pages-container,.primary-sidebar{
+	width:20%;
+	padding: 1%;
+	background: #748c73;
+	overflow: inherit;
+}
+#content{
+	width:76%;
+	padding: 1%;
+	background: #dce7df;
 }
 #footer{
-	clear:both;
+	background: #778885;
 }

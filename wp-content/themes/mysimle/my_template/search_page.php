@@ -17,17 +17,17 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<div id=wrapper>
 <div id=header>
-<p>Default search box in header: <?php get_search_form(); ?></p>
+Default search box in header: <?php get_search_form(); ?>
 </div>
-
+<div id=wrapper>	<!--для позиционирования врезки и контента-->
+<?php get_sidebar('primary');?>
 <div id=content>
 <?php
 //************* WP_Query *************
 $query_args=array('page_id'=>'48');	//WP_Query arguments
 $my_query=new WP_Query($query_args);	
-get_sidebar('primary');
+
 if ($my_query->have_posts()){	//Loop
 	while($my_query->have_posts()){
 		$my_query->the_post();
@@ -38,8 +38,9 @@ if ($my_query->have_posts()){	//Loop
 wp_reset_postdata();	//Restory original post data
 ?>
 </div>
-<div id=footer>
 </div>
+<div id=footer>
+<p>Somthing about me</p>
 </div>
 <?php wp_footer(); ?>
 </body>
