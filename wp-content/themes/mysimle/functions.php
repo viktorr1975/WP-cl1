@@ -1,6 +1,6 @@
 <?php
 /**
- * Регистрация боковичка для страницы.
+ * Регистрация sidebar для страницы.
  * Регистрация с помощью add_action позволит при необходимости в дочерней теме отключить р * егистрацию
  * 
  */
@@ -18,4 +18,5 @@ add_action('widgets_init','my_register_sidebars');
  		)
  	);
  }
+ add_theme_support('automatic-feed-links')
 ?>
