@@ -17,17 +17,17 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<div id=wrapper>
+
 <div id=header>
 
 </div>
-
-<div id=content>
+<div id=wrapper>
+<?php get_sidebar('primary');?>
+<div id=content> 
 <?php
 //************* WP_Query *************
 $query_args=array('page_id'=>'37');	//WP_Query arguments
 $my_query=new WP_Query($query_args);	
-get_sidebar('primary');
 if ($my_query->have_posts()){	//Loop
 	while($my_query->have_posts()){
 		$my_query->the_post();
@@ -38,9 +38,10 @@ if ($my_query->have_posts()){	//Loop
 wp_reset_postdata();	//Restory original post data
 ?>
 </div>
+</div>
 <div id=footer>
 </div>
-</div>
+
 <?php wp_footer(); ?>
 </body>
 </html>

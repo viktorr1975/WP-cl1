@@ -20,6 +20,7 @@ html, body{
 #wrapper{
 	display: inline-flex;	
 	height: 92%;
+	width: 100%;
 	margin-bottom: -20px;
 	overflow: auto;
 }
@@ -36,4 +37,27 @@ html, body{
 }
 #footer{
 	background: #778885;
+}
+
+/* Стили для хлебных крошек */
+#_breadcrumbs {
+    width: auto;    /* Общая ширина страницы */
+    font-size: 14px;   /* Размер шрифта */
+    color:  #215B9B;   /* Цвет текста, который не является ссылкой */
+    text-shadow: #5DB6FA 0px 1px 1px;  /* Тени для текста (необязательно) */
+    text-align: left;   /* Прижимаем текст к левому краю страницы */
+    margin: 3px 30px 0px 30px;  /* Внешние отступы */
+    padding-bottom: 5px;   /* Внутренние отступы */
+    border-bottom: 2px solid #f2f2f2;  /* Добавляем разделительную черту снизу */
+}
+/* цвет ссылок */
+#breadcrumbs a, #breadcrumbs a:visited {
+    color: #215B9B;  /* Цвет ссылки */
+    text-decoration: none;  /* Отменяем подчеркивание ссылок */
+}
+ 
+/* цвет ссылок при наведении курсора */
+#breadcrumbs a:hover, #breadcrumbs a:active {
+     color: #C6C600;  /* цвет ссылки при наведении курсора */
+     text-decoration: none;  /* Отменяем подчеркивание ссылок при наведении курсора */
 }
