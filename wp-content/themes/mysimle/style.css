@@ -21,7 +21,7 @@ html, body{
 	display: inline-flex;	
 	height: 92%;
 	width: 100%;
-	margin-bottom: -20px;
+/*	margin-bottom: -20px;*/
 	overflow: auto;
 }
 .menu-pages-container,.primary-sidebar{
@@ -37,6 +37,7 @@ html, body{
 }
 #footer{
 	background: #778885;
+	height: 8%;
 }
 
 /* Стили для хлебных крошек */

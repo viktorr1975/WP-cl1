@@ -247,7 +247,7 @@ if( function_exists('kama_breadcrumbs') ) kama_breadcrumbs(' » ');
 </div>
 </div>
 <div id=footer>
-<p>Somthing about me</p>
+Somthing about me
 </div>
 <?php wp_footer(); ?>
 </body>

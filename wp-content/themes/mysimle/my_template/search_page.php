@@ -40,7 +40,7 @@ wp_reset_postdata();	//Restory original post data
 </div>
 </div>
 <div id=footer>
-<p>Somthing about me</p>
+Somthing about me
 </div>
 <?php wp_footer(); ?>
 </body>
