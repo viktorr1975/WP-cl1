@@ -17,7 +17,7 @@ Template Name: Mysimple
 <body <?php body_class();?>>
 <div id=wrapper>
 <div id=header>
-
+<?php get_header(); ?>
 </div>
 
 <?php wp_nav_menu( $args ); ?>
