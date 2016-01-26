@@ -1,18 +1,18 @@
 <?php
 //Manage Plugin Version
-update_option( 'viktorr1975_copy_post_ver', $GLOBALS['viktorr1975_copy_post_VER'] );	//version always apdated
-add_option( 'viktorr1975_copy_post_db_ver', $GLOBALS['viktorr1975_copy_post_DB_VER'] );	//keep old version if exist
+update_option( 'viktorr1975_copy_post_ver', $viktorr1975_copy_post_VER );	//version always apdated
+add_option( 'viktorr1975_copy_post_db_ver', $viktorr1975_copy_post_DB_VER );	//keep old version if exist
 
-maybe_update();
+//maybe_update();
 
 function maybe_update() {
 	// check if this plugin data need updating
 	if ( get_option( 'viktorr1975_copy_post_db_ver' ) >= $GLOBALS['viktorr1975_copy_post_DB_VER'] )
 	{
 			return;
-		}
-		//можно процедуры обновления вынести в отдельный подкаталог: require_once( __DIR__ . '/update.php' );
-		viktorr1975_copy__update();
+	}
+	//можно процедуры обновления вынести в отдельный подкаталог: require_once( __DIR__ . '/update.php' );
+	viktorr1975_copy__update();
 }
 /**
 * Run the incremental updates one by one.

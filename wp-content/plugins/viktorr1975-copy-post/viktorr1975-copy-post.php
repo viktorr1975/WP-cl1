@@ -16,8 +16,9 @@ $viktorr1975_copy_post_VER = '0.1.0';	//keep plugin version
 $viktorr1975_copy_post_DB_VER = 2;		//keep database version. each time database schema changes you need to increment this one by 1
 
 require 'check-php-wp-version.php';	//проверка версии php и Wordpress
-require 'dashboard-menu.php';		//Создание меню на странице администрирования
-require 'check-plugin-version.php';		//
+//require 'dashboard-menu.php';		//Создание меню на странице администрирования
+require 'check-plugin-version.php';	//проверка необходимости обновления плагина
+require	'import-export.php';		//функции по переносу статей
 //to detect whether a previous version of our plugin has been installed or not
 /*
 Шаблоны функций активации, деактивации и удаления взяты из http://wordpress.stackexchange.com/questions/25910/uninstall-activate-deactivate-a-plugin-typical-features-how-to/25979#25979 
@@ -34,6 +35,7 @@ function viktorr1975_copy_post_on_activation()
 // by using add_option, if these options have already been initialized, they will not be overwritten
 	//add_option( 'solis_posts_per_page', 10 );
 	//add_option( 'solis_show_welcome_page', true );
+	
 	
 	// Расcкомментируйте эту строку, чтобы увидеть функцию в действии
 	// exit( var_dump( $_GET ) );
@@ -70,7 +72,5 @@ register_uninstall_hook(    __FILE__, 'viktorr1975_copy_post_on_uninstall' );
 
 /*the plugin activation hook  is not triggered when plugin is updated. So what we need to do is to also check for db version change on plugins_loaded.*/
 add_action( 'plugins_loaded', 'maybe_update' , 1 );
-
-
 
 ?>
