@@ -17,6 +17,7 @@ $viktorr1975_copy_post_DB_VER = 2;		//keep database version. each time database 
 
 require 'check-php-wp-version.php';	//проверка версии php и Wordpress
 //require 'dashboard-menu.php';		//Создание меню на странице администрирования
+require 'viktorr1975-options.php';				//добавление опций в плагин
 require 'check-plugin-version.php';	//проверка необходимости обновления плагина
 require	'import-export.php';		//функции по переносу статей
 //to detect whether a previous version of our plugin has been installed or not
