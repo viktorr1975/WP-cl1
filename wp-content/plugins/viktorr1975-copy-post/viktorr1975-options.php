@@ -85,10 +85,11 @@ function viktorr1975_setting_callback_function() {
 function viktorr1975_setting_callback_function2() {
 	$val=get_option( 'viktorr1975_setting_name1' );
 	$val=$val['textbox'];
+	global $viktorr1975_options_redux;
 	echo '<input 
 		name="viktorr1975_setting_name1[textbox]"  
 		type="text" 
-		value="' . esc_html($val) . '" 
+		value="' . esc_html($viktorr1975_options_redux['text-example']) . '" 
 	 />';
 }
 

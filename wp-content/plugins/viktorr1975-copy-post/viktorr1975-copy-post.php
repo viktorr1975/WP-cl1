@@ -20,6 +20,11 @@ require 'check-php-wp-version.php';	//проверка версии php и Wordp
 require 'viktorr1975-options.php';				//добавление опций в плагин
 require 'check-plugin-version.php';	//проверка необходимости обновления плагина
 require	'import-export.php';		//функции по переносу статей
+
+// Load the embedded Redux Framework
+if ( file_exists( dirname( __FILE__ ).'/admin-folder/admin/admin-init.php' ) ) {
+	require_once dirname(__FILE__).'/admin-folder/admin/admin-init.php';
+}
 //to detect whether a previous version of our plugin has been installed or not
 /*
 Шаблоны функций активации, деактивации и удаления взяты из http://wordpress.stackexchange.com/questions/25910/uninstall-activate-deactivate-a-plugin-typical-features-how-to/25979#25979 
