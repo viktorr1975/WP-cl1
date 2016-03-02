@@ -9,4 +9,3 @@
 		<?php dynamic_sidebar( 'primary' ); ?>
 	</div><!-- .widget-area -->
 <?php endif; ?>
-<?php?>
