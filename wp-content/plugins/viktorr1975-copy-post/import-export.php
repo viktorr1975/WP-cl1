@@ -18,7 +18,7 @@ if(is_admin()) {
 function custom_bulk_admin_footer() {
 	global $post_type;
 	
-	if($post_type == 'post') {
+	if(($post_type == 'post')or ($post_type == 'page')) {
 		?>
 			<script type="text/javascript">
 				jQuery(document).ready(function() {
@@ -38,8 +38,10 @@ function custom_bulk_admin_footer() {
 function custom_bulk_action() {
 	global $typenow;
 	$post_type = $typenow;
+
+	if(($post_type == 'post')or ($post_type == 'page')) {
 	
-	if($post_type == 'post') {
+//	if($post_type == 'post') {
 		
 		// get the action
 		$wp_list_table = _get_list_table('WP_Posts_List_Table');  // depending on your resource type this could be WP_Users_List_Table, WP_Comments_List_Table, etc
@@ -106,6 +108,10 @@ function custom_bulk_admin_notices() {
 		$message = sprintf( _n( 'Post %s exported.', 'Posts: %s  exported.', $_REQUEST['exported']) , $_REQUEST['exported']);
 		echo "<div class=\"updated\"><p>{$message}</p></div>";
 	}
+	else if($pagenow == 'edit.php' && $post_type == 'page' && isset($_REQUEST['exported']) && (int) $_REQUEST['exported']) {
+		$message = sprintf( _n( 'Page %s exported.', 'Pages: %s  exported.', $_REQUEST['exported']) , $_REQUEST['exported']);
+		echo "<div class=\"updated\"><p>{$message}</p></div>";
+	}
 }
 
 //функция экспортирует в sql-файл посты по идентификаторам
@@ -116,7 +122,7 @@ function perform_export($post_ids) {
 	$comma_separated_post_ids = implode(",", $post_ids);
 	//$comma_separated_post_ids = is_array($post_ids) ? implode("','", $post_ids) : $post_ids;	//если экспортируется нескольно постов, сделаем список номеров постов	
 	//не проверяем запрос на SQL-injection, т.к. входные величины уже проверены ($post_ids = array_map('intval', $_REQUEST['post']);	//проверка что входные величины - числа.)
-	$sql_str="SELECT ID, post_content, post_title, post_excerpt, post_status, post_name, guid FROM $wpdb->posts
+	$sql_str="SELECT ID, post_content, post_title, post_excerpt, post_status, post_name, post_type, guid FROM $wpdb->posts
 			WHERE  ID IN ($comma_separated_post_ids)";
 	$result = $wpdb->get_results( $sql_str);//получим из БД данные выбранных постов
 /*!!! Можно вставить проверку на успешность запроса	
@@ -139,7 +145,7 @@ function perform_export($post_ids) {
 	$exported="";	//число экспортированных постов
     foreach ( $result as $NextPost ) 
 	{
-        $dump .=$wpdb->prepare("INSERT INTO `$table` ( post_content, post_title, post_excerpt, post_status, post_name, guid ) VALUES (%s,%s,%s,%s,%s,%s);\n",$NextPost->post_content, $NextPost->post_title, $NextPost->post_excerpt, $NextPost->post_status, $NextPost->post_name, $NextPost->guid);   //$wpdb->prepare для экранирования(sql-escape) спецсимволов sql в посте      
+        $dump .=$wpdb->prepare("INSERT INTO `$table` ( post_content, post_title, post_excerpt, post_status, post_name, post_type, guid ) VALUES (%s,%s,%s,%s,%s,%s,%s);\n",$NextPost->post_content, $NextPost->post_title, $NextPost->post_excerpt, $NextPost->post_status, $NextPost->post_name, $NextPost->post_type, $NextPost->guid);   //$wpdb->prepare для экранирования(sql-escape) спецсимволов sql в посте      
         $exported=$exported. " " . $NextPost->ID;	//экспортированные посты
 	}
 	$dump .= "/*!40000 ALTER TABLE `".$table."` ENABLE KEYS */;\n";	
